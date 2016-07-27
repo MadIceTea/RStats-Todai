@@ -1,0 +1,125 @@
+######################
+# Chapter 8 ANOVA
+# P. 113, Example 1
+# Water and the growth of bean plants
+#################
+
+mydata <- matrix (c(5,7,4,6,4,7,6,7,7,8,8,6,6,4,8,3), nrow=4, ncol=4)
+
+newdata <- data.frame(water=as.factor(col(mydata)), scores=as.vector(mydata))
+
+summary (aov(scores ~ water, newdata))
+
+mydata
+
+newdata
+
+summary (aov(scores ~ water, newdata))
+
+######################
+# Chapter 8 ANOVA
+# P. 116, Example 2: Cooperative behviours?
+# Kindergarten Education for 6 Months
+#################
+
+mydata <- matrix (c(0,1,0,2,3,1,1,2,0,3,2,2,2,2,3,3,4,3), nrow=6, ncol=3)
+
+newdata <- data.frame(education=as.factor(col(mydata)), scores=as.vector(mydata))
+
+summary (aov(scores ~ education, newdata))
+
+mydata
+
+newdata
+
+summary (aov(scores ~ education, newdata))
+
+######################
+# Chapter 8 ANOVA
+# P. 117, Comparing ANOVA and T-Test
+#################
+
+mydata <- matrix (c(4,7,1,5,9,7,4,6,8,8,7,6,1,4,2,4,6,3,5,7,3,0,5,2), nrow=12, ncol=2)
+
+newdata <- data.frame(PorF=as.factor(col(mydata)), scores=as.vector(mydata))
+
+summary (aov(scores ~ PorF, newdata))
+
+mydata
+
+#The results
+
+#     [,1] [,2]
+#[1,]    4    1
+#[2,]    7    4
+#[3,]    1    2
+#[4,]    5    4
+#[5,]    9    6
+#[6,]    7    3
+#[7,]    4    5
+#[8,]    6    7
+#[9,]    8    3
+#[10,]    8    0
+#[11,]    7    5
+#[12,]    6    2
+
+
+newdata
+
+#Cool results
+
+#   PorF scores
+#1     1      4
+#2     1      7
+#3     1      1
+#4     1      5
+#5     1      9
+#6     1      7
+#7     1      4
+#8     1      6
+#9     1      8
+#10    1      8
+#11    1      7
+#12    1      6
+#13    2      1
+#14    2      4
+#15    2      2
+#16    2      4
+#17    2      6
+#18    2      3
+#19    2      5
+#20    2      7
+#21    2      3
+#22    2      0
+#23    2      5
+#24    2      2
+
+summary (aov(scores ~ PorF, newdata))
+
+#Cool results
+#            Df Sum Sq Mean Sq F value  Pr(>F)   
+#PorF         1   37.5   37.50   8.168 0.00914 **
+#Residuals   22  101.0    4.59                   
+
+#Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+t.test(newdata$scores[1:12], newdata$scores[13:24], var=T)
+
+#T-Test results
+
+#       Two Sample t-test
+
+#data:  newdata$scores[1:12] and newdata$scores[13:24]
+#t = 2.858, df = 22, p-value = 0.009143
+#alternative hypothesis: true difference in means is not equal to 0
+#95 percent confidence interval:
+#0.6859223 4.3140777
+#sample estimates:
+#mean of x mean of y 
+#     6.0       3.5 
+
+2.858^2
+#Answer
+#8.168
+
+#So, yep, T-test squared is the value of the F-test.

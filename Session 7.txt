@@ -1,0 +1,100 @@
+######################
+# Chapter 6, Designing Powerful Experiment
+# Fig 6.1 (p.78 and 79)
+# Getting acquaintaed vs. Non-getting acquaintaed
+#################
+
+GetA <- c(4,5,5,6,6,6,6,7,7,8)
+No.GetA <- c(3,4,4,5,5,5,5,6,6,7)
+
+t.test (GetA, No.GetA, var=T)
+
+######################
+# Chapter 6, Designing Powerful Experiment
+# Fig 6.1 (p.78 and 79)
+# Question 1: Twice as many subjects
+# Getting acquaintaed vs. Non-getting acquaintaed
+#################
+
+GetA <- c(4,5,5,6,6,6,6,7,7,8)
+No.GetA <- c(3,4,4,5,5,5,5,6,6,7)
+
+t.test (2*GetA, 2*No.GetA, var=T)
+
+######################
+# Chapter 6, Designing Powerful Experiment
+# Fig 6.1 (p.78 and 79)
+# Question 2: Adding 1 to get new OD score
+# Getting acquaintaed vs. Non-getting acquaintaed
+#################
+
+GetA <- c(4,5,5,6,6,6,6,7,7,8)
+No.GetA <- c(3,4,4,5,5,5,5,6,6,7)
+
+t.test (1+GetA, 1+No.GetA, var=T)
+
+######################
+# Practice of new T-Test Distribution Graph
+#################
+
+xt <- seq(-3,3,0.01)
+plot(xt, dt(xt, df=14), type="l")
+
+qt(0.05, df=14)
+
+qt(0.025, df=14)
+
+######################
+# Chapter 7, Paired Design
+# Table 7-2 (p.95) Tomato vs. Banana Diet
+# Test-I: Normal T-test
+#################
+
+tomato <- c(6,16,10,14,24,8)
+banana <- c(1,10,5,15,20,3)
+t.test(tomato, banana, var=T)
+
+######################
+# Chapter 7, Paired Design
+# Table 7-2 (p.95) Tomato vs. Banana Diet
+# Test-II: Paired Design T-test
+#################
+
+D <- c(5,6,5,-1,4,5)
+t.test(D, mu=0)
+
+#In-class derivative practice exercise.
+
+######################
+# Chapter 7, Paired Design
+# Table 7-2 (p.95) Tomato vs. Kabocha Diet
+# Test-I: Normal T-test
+#################
+
+tomato <- c(6,16,10,14,24,8)
+Kabocha <- c(2,5,4,3,12,7)
+t.test(tomato, Kabocha, var=T)
+
+######################
+# Chapter 7, Paired Design
+# Table 7-2 (p.95) Tomato vs. Banana Diet
+# Test-II: Paired Design T-test
+#################
+
+D <- c(4,11,6,11,12,1)
+t.test(D, mu=0)
+
+######################
+# Homework
+# Problem B (p.102) Which Way is Up?
+# Choice: Pair-Wise T-Test (One Sample T-Test)
+#################
+
+#normal t-test
+Con1 <- c(8,6,1,5,3,2,7,4)
+Con2 <- c(7,6,3,7,6,1,5,4)
+t.test(Con1, Con2, var=T)
+
+#one-way t-test
+D <- c(1,0,-2,-2,-3,1,2,0)
+t.test(D, mu=0)

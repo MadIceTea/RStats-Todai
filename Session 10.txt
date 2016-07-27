@@ -1,0 +1,67 @@
+######################
+# Chapter 10 Factorial Design
+# Table 10-4: Desirability of Dormitory Life
+# Johnston and Liebert, p.138
+#################
+
+desirability <- matrix (c(6,5,6,7, 2,1,1,0, 7,8,8,9, 8,7,6,7), nrow=4, ncol=4)
+size <- c(rep("S",4), rep("S",4), rep("L",4), rep("L",4))
+mate <- c(rep(1,4), rep(2,4), rep(1,4), rep(2,4))
+
+newdata <- data.frame(size = as.factor(size), mate = as.factor(mate), desirability = as.vector(desirability))
+
+summary (aov(desirability ~ size + mate + size*mate, data = newdata))
+
+#========
+# Abscissa: Graph of Room Size (Small vs Large)
+#========
+
+one <- c(mean(newdata$desirability[1:4]), mean(newdata$desirability[9:12]))
+two <- c(mean(newdata$desirability[5:8]), mean(newdata$desirability[13:16]))
+plot(one, xaxt="n", ylim=c(1,10), type="b", xlab="Room Size", ylab="mean value", pch=1)
+#b means "Both", which is referring to the plot AND the line.
+par(new=T)
+plot(two,xaxt="n", ylim=c(1,10), type="b", xlab="", ylab="", pch=2)
+axis(side=1, at=1:2)
+
+#========
+# Abscissa: Number of Room Mate (one vs. two)
+#========
+
+one <- c(mean(newdata$desirability[1:4]), mean(newdata$desirability[9:12]))
+two <- c(mean(newdata$desirability[5:8]), mean(newdata$desirability[13:16]))
+plot(one, xaxt="n", ylim=c(1,10), type="b", xlab="Room Mate", ylab="mean value", pch=1)
+#b means "Both", which is referring to the plot AND the line.
+par(new=T)
+plot(two,xaxt="n", ylim=c(1,10), type="b", xlab="", ylab="", pch=2)
+axis(side=1, at=1:2)
+
+#========
+# Plasma Ca++ Concentration of Each Sex with Hormone Treatment
+# Zar(1999) Example 12.1. and 12.2 p. 233-238
+#========
+
+d <- read.csv("C:/Users/Alex Wiegman/Desktop/CaHormoneConcentration.csv", header=T)
+hormone <- as.factor(d$hormone)
+sex <- as.factor(d$sex)
+Ca <- as.vector(d$ca_conc)
+
+summary(aov (Ca ~ hormone + sex + hormone:sex))
+
+#========
+# Abscissa: Number of Room Mate (one vs. two)
+#========
+
+H_yes <- c(mean(Ca[1:5]), mean(Ca[6:10]))
+H_no <- c(mean(Ca[11:15]), mean(Ca[16:20]))
+plot(H_yes, xaxt="n", ylim=c(0,40), type="b", xlab="Sex", ylab=" Ca++ Concentration", pch=1)
+#b means "Both", which is referring to the plot AND the line.
+par(new=T)
+plot(H_no,xaxt="n", ylim=c(0,40), type="b", xlab="", ylab="", pch=2)
+axis(side=1, at=1:2)
+
+#========
+# Chapter 10 Factorial Design
+# Example 2 (Table 10-12)
+#========
+

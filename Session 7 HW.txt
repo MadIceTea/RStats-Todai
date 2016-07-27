@@ -1,0 +1,46 @@
+######################
+# Homework
+# Problem B (p.102) Which Way is Up?
+# Choice: Pair-Wise T-Test (One Sample T-Test)
+#################
+
+#normal t-test
+Con1 <- c(8,6,1,5,3,2,7,4)
+Con2 <- c(7,6,3,7,6,1,5,4)
+t.test(Con1, Con2, var=T)
+
+#Cool Answer
+data:  Con1 and Con2
+t = -0.32873, df = 14, p-value = 0.7472
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -2.821692  2.071692
+sample estimates:
+mean of x mean of y 
+    4.500     4.875 
+
+
+#one-way t-test
+D <- c(1,0,-2,-2,-3,1,2,0)
+t.test(D, mu=0)
+
+#This one's even hotter answer
+data:  D
+t = -0.6, df = 7, p-value = 0.5674
+alternative hypothesis: true mean is not equal to 0
+95 percent confidence interval:
+ -1.85289  1.10289
+sample estimates:
+mean of x 
+   -0.375 
+
+
+This is a one-way T-Test but in the pair-wise manner. (The two way one is good for individual compairsons, but the question specifically asks about the statistical signficance betweeen the difference of two test "flying" conditions.)
+The p-values in the difference of the two columns (types of data) shows a level of 57% (0.5674)!! 
+As up to 5% is not signficant, 5-10% is considerable, and anything over 10% quite significant, there is a huge difference to be found between the two.
+
+#End of Homework
+#MLG Airplane Crash
+#Tactical plane incoming
+
+#ALex Doge, aka Alex T.W.

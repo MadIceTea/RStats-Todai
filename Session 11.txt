@@ -1,0 +1,85 @@
+#Session 11 Classwork (Was absent the day of)
+######################
+# Chapter 11 Regression and Correlation
+# Table 11-2 (p.166): Marriage Years - Parents vs. Children
+#################
+
+MarrYear_X <- c(1,2,4,5,3,2,3,1,5,4,4,2)
+MarrYear_Y <- c(3,4,4,5,5,3,4,3,6,6,5,5)
+plot(MarrYear_X, MarrYear_Y, xlim=c(0,7), ylim=c(0,7), xlab="X (year)", ylab="Y (year)")
+
+result <- lm(MarrYear_Y ~ MarrYear_X)
+summary(result)
+abline(result)
+
+#-----------Call results of the above code-----------
+#Call:
+#lm(formula = MarrYear_Y ~ MarrYear_X)
+#
+#Residuals:
+#   Min      1Q  Median      3Q     Max 
+# -1.0076 -0.4621 -0.1212  0.4470  1.1742 
+#
+#Coefficients:
+#            Estimate Std. Error t value Pr(>|t|)    
+#(Intercept)   2.6439     0.5077   5.208 0.000397 ***
+#MarrYear_X    0.5909     0.1543   3.831 0.003315 ** 
+#---
+#Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+#
+#Residual standard error: 0.7235 on 10 degrees of freedom
+#Multiple R-squared:  0.5947,    Adjusted R-squared:  0.5542 
+#F-statistic: 14.67 on 1 and 10 DF,  p-value: 0.003315
+#-------------------End of results of call-------------
+
+cor(MarrYear_X, MarrYear_Y)
+# [1] 0.7711818
+
+#---------------------
+# Table 11-3 (page 168)
+# Set A: (The data with the same regression line and different correlation coefficients)
+#---------------------
+
+x <- c(0,0,2,2,4,4,6,6,8,8)
+y <- c(1,1,3,3,4,4,5,5,7,7)
+
+summary(result <-lm(y ~ x))
+plot(x,y, xlim=c(0,10), ylim=c(0,8),xlab="x", ylab="y")
+abline(result)
+
+#-----------Call results of the above code-----------
+#Call:
+#lm(formula = y ~ x)
+#
+#Residuals:
+#   Min     1Q Median     3Q    Max 
+#  -0.4   -0.2    0.0    0.2    0.4 
+#
+#Coefficients:
+#            Estimate Std. Error t value Pr(>|t|)    
+#(Intercept)  1.20000    0.17321   6.928 0.000121 ***
+#x            0.70000    0.03536  19.799 4.41e-08 ***
+#---
+#Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+#
+#Residual standard error: 0.3162 on 8 degrees of freedom
+#Multiple R-squared:   0.98,     Adjusted R-squared:  0.9775 
+#F-statistic:   392 on 1 and 8 DF,  p-value: 4.41e-08
+#-------------------End of results of call-------------
+
+cor(x,y)
+# [1] 0.9899495
+
+#--------------------
+# Regression between daily age and wing length in sparrow
+# Zar (1999) Chapter 19, Example 19-1
+#--------------------
+
+age <- c(3.0, 4.0, 5.0, 6.0, 8.0, 9.0, 10.0, 11.0, 12.0, 14.0, 15.0, 16.0, 17.0)
+wing <- c(1.4, 1.5, 2.2, 2.4, 3.1, 3.2, 3.2, 3.9, 4.1, 4.7, 4.5, 5.2, 5.0)
+
+result1 <- lm(wing ~ age)
+summary(result1)
+
+
+summary(aov (wing ~ age))

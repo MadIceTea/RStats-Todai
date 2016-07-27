@@ -1,0 +1,72 @@
+# Session 12 In-Class: Paramatretic Tests by Frequencies
+######################
+# Chapter 12: Chi-square Tests
+# Childrens' Sharing Behavior with a Sharing Model
+# Table 12-3 (p.192)
+#################
+
+#What is a contingency table like this one show us?
+#It shows us the relation between two variables; here, "an exposure to the model" and "a control with no model"
+
+#Come up with a statement to describe the situation of the contingency in the table.
+#Those exposed to the model will be more likely to give the candy than those not exposed.
+
+#How do we detect the association of being exposed to the model and not? How can we compare if they are related or not?
+#Well, that is what a contingency table is asking us. Further, we may use a special kind of nonparametric regression, called the x-squared value.
+#But, we should be careful. The real chi-squared distribution is more complicated - the summation of i=1 to k of a function value z-sub-i squared.
+
+#Degrees of Freedom in a Contingency Table - How to calculate?
+#df=(r-1)(c-1) | [r=#rows and c=#cols]
+
+x <- matrix(c(25,15,10,30), ncol=2, nrow=2, byrow=T)
+chisq.test(x, correct=F)
+
+#-----Results of calling the above function-----
+#         Pearson's Chi-squared test (X-squared)
+
+# data:  x
+# X-squared = 11.429, df = 1, p-value = 0.0007232
+#-------End of Results----------------------------
+#We should note a high chance of a Type I error from a small sample size.
+
+#When should we call the sample "small"?
+#In total, when N<=40 it is "small"
+#Any cells should be larger that 5, else it is "small"
+#The above two were made by a guy named Cochran. So, it is called Cochran's Rule.
+#Any cells should be larger than 10 for the "Goodness" of Fit Test", else it is "small".
+
+#--------------
+# Chapter 12: Fisher's Exact Probability Test (page 196-198)
+# Childrens' Sharing Behavior with a Sharing Model
+# Table 12-3 (page 192)
+#--------------
+
+#What is the Fisher's Test
+#It allows us to look at the contingency table values individually and do a probabilistic analysis involving factorials.
+
+x <- matrix(c(25,15,10,30), ncol=2, nrow=2, byrow=T)
+fisher.test(x)
+
+#-----Results of calling the above function-----
+#         Fisher's Exact Test for Count Data
+
+#data:  x
+#p-value = 0.001433
+#alternative hypothesis: true odds ratio is not equal to 1
+#95 percent confidence interval:
+#  1.740761 14.704723
+#sample estimates:
+#odds ratio 
+#  4.890134 
+#-------End of Results----------------------------
+
+#What is the correction for continuity?
+#It is used as a correction, but only if the contingency table represents a "small" sample.
+
+#--------------
+# Professor Shimada's Textbook Example
+# Data from Water Snails
+#--------------
+
+data.1 <- matrix(c(12,7,2,9)), nrow=2, ncol=2, byrow=T)
+fisher.test(data.1, alternative="g")

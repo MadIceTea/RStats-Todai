@@ -1,0 +1,131 @@
+#------------
+# Session 8 and 9 Homework
+# p. 117-118 "Candy, Tea, or Me?"
+# also added with Session 9 In-Class addition of Tukey Test
+# also attempted using a CSV file
+# WOW MLG Mate. Such Long program documentation.
+#--------------
+
+#The Automated Method Using R-script
+mydata <- matrix (c(9,7,6,7,6,4,5,6,5,5,6,3,5,4,4,11,7,7,5,6), nrow=5, ncol=4)
+
+newdata <- data.frame(rewards=as.factor(col(mydata)), scores=as.vector(mydata))
+
+summary (aov(scores ~ rewards, newdata))
+
+#No-spiced Results of the Running the Script
+#
+#            Df Sum Sq Mean Sq F value Pr(>F)  
+#rewards      3   29.8   9.933   4.675 0.0157 *
+#Residuals   16   34.0   2.125                 
+#---
+#Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+mydata
+
+#More results
+#    [,1] [,2] [,3] [,4]
+#[1,]    9    4    6   11
+#[2,]    7    5    3    7
+#[3,]    6    6    5    7
+#[4,]    7    5    4    5
+#[5,]    6    5    4    6
+
+
+newdata
+#WOW Very Organised Table
+#   rewards scores
+#1        1      9
+#2        1      7
+#3        1      6
+#4        1      7
+#5        1      6
+#6        2      4
+#7        2      5
+#8        2      6
+#9        2      5
+#10       2      5
+#11       3      6
+#12       3      3
+#13       3      5
+#14       3      4
+#15       3      4
+#16       4     11
+#17       4      7
+#18       4      7
+#19       4      5
+#20       4      6
+
+#-----Without the aov() function-------
+
+k <- 4
+n <- 5
+
+within.SS <- 0
+between.SS <- 0
+
+for (j in 1:k)
+
+{
+within.SS <- within.SS+sum((mydata[,j]-mean(mydata[,j]))^2)
+between.SS <- between.SS + sum(n*(mean(mydata[,j])-mean(mydata[,j]))^2)
+}
+
+#Time to call some values.
+
+within.SS
+#Program Output
+#34
+
+
+between.SS
+#Program Output
+#0
+
+
+Ms.b <- between.SS / (k-1)
+Ms.w <- within.SS / (k*(n-1))
+
+Ms.b
+#Program Output
+#0
+
+Ms.w
+#Program Output
+#2.125
+
+F <- Ms.b/Ms.w
+F
+#Program Output
+#0
+
+#-------------End of Manual AOV Calculation Script--------------
+
+#Lesson 9 HW (Above with the Tukey Test)
+
+#We can be simple here, and just call the automatic Tukey Test in R-Script (so says the suggested answer key)
+#We must first define the results of the Tukey within the call of the aov function from above
+
+result <- aov(scores ~ rewards, newdata)
+TukeyHSD(result)
+#output
+#  Tukey multiple comparisons of means
+#    95% family-wise confidence level
+#
+#Fit: aov(formula = scores ~ rewards, data = newdata)
+#
+#$rewards
+#    diff        lwr        upr     p adj
+#2-1 -2.0 -4.6377299 0.63772995 0.1741258
+#3-1 -2.6 -5.2377299 0.03772995 0.0540694
+#4-1  0.2 -2.4377299 2.83772995 0.9962438
+#3-2 -0.6 -3.2377299 2.03772995 0.9137347
+#4-2  2.2 -0.4377299 4.83772995 0.1201079
+#4-3  2.8  0.1622701 5.43772995 0.0355544
+
+#Results of the Analysis (as per the suggested answers)
+#There are signficant differences between treatments 3 and 4. Of the methods available to suggest it as, I preer the (321)4 method of denotation
+#Hoewever, I can see why 3 (214) and the other one with the seperated underlines are OK as well.
+
+#End of Homework for Lessons 8 and 9.
+#Another assignment quickscoped.
