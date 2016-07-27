@@ -1,0 +1,22 @@
+Currently, this code is provided on GitHub public repository, meaning I have given up the right to only allow me to pull the code.
+
+THAT SAID, I HAVE NOT GIVEN UP COMMERCIAL, RE-USE, DISTRIBUTION, PATENT, or any other rights by doing this. These lie with:
+
+(c) 2016, Prof. Masakazu Shimada / Alexander Zen Taniguchi-Wiegman @ The University of Tokyo
+
+The copyrights lie fully and rest with these two. Attempt should be made to contact them both in any want of re-use of the code, where the GitHub Disclaimer.txt file in this commit should provide the official contact information.
+
+The files have the right to be changed at any time by the original uploader.
+
+As for any secondary pulls and the like, as the GitHub Disclaimer file states, there should be a request by email, if nothing else, out of courtesy. If not, GitHub will notify me, and I will take action.
+
+Any wants to use for commercial software, or for monetary gain shall be routed through us both.
+
+Any wants for use in patent technology, outside of the University of Tokyo, shall officially have final decisions rest with me (Alex).
+
+The World Copyright Act by the UN Copryight Convention states I do not need to pay a patent or copyright office a country to retain rights to my work. These are rights naturally guaranteed to me, esp. all the more if I declare them explicitly. Any rights not stated here shall refer to the general rights of ownership. THIS INCLUDES COMMENT ON THE CODE.
+
+Any other rights not here lie with the uploader by default.
+
+Again, this document may change at any time. It may even disappear.
+(GitHub may even disappear!)

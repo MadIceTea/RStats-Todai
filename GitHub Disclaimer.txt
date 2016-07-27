@@ -1,0 +1,13 @@
+I have uploaded this code onto GitHub with the desire of some certain sets of people who want to see what I have learned in terms of the R-scripting code language from my statistics class.
+
+This code, as produced by a public educational institution and its members, is not expected to stay private, necessarily, however, it should not be used for beyond personal and shared personal use (for commercial gain, for public exhibitions) without contacting anyone alive concerned - Professor Shimada, Alexander Taniguchi-Wiegman, etc.
+
+I, Alex, shall not hold myself accountable to the uploads of this code, unauthorised uses, etc. Authorisation shall be granted exclusively by emailing both myself - alex-peak [at] g.ecc.u-tokyo.ac.jp AND my professor, Professor Shimada - mshimada [at] balmer.c.u-tokyo.ac.jp, where both must respond in positive form in digitally written permission (unless one or more have died, in which I reserve the right to allow descendants thereof (if existing) of the above to accept or deny permissions).
+
+The code may be used by either of the above parties, independent of the other, for their own personal gain - either in the job-market, or for showing family and friends, etc.
+
+Finally, anyone else wishing to use this code should, out of courtesy, if nothing else, email the above people to notify them of such, however, if the pull is done on GitHub, the website should notify us, in which case, we will likely make the attempt to contact you (so expect us).
+
+The code is provided with no guarantees as to upwards, at, or downwards compatibility, nor with any other guarantees to serviceability or safety, etc. It is provided "as-is" for more or less archival purposes.
+
+For more information on Copyright Permissions, please see the "Copyright.txt" file.
