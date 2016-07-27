@@ -1,0 +1,41 @@
+
+R version 3.2.5 (2016-04-14) -- "Very, Very Secure Dishes"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> # ---------
+> # Normal Distribution
+> #   vs. t-distribution
+> #  Chapter 4, Fig. 4-9 (p.51)
+> # ---------
+> 
+> x <- seq (-3, 3, 0.01)
+> 
+> x.norm <- dnorm (x, mean=0, sd=1)
+> x.tdistr <- dt(x, df=4)
+> 
+> plot (x, x.norm, xlab="x", ylab="probability", xlim=c(-3,3), ylim=c(0,0.4)
++ type="l", col="blue")
+Error: unexpected symbol in:
+"plot (x, x.norm, xlab="x", ylab="probability", xlim=c(-3,3), ylim=c(0,0.4)
+type"
+> plot (x, x.norm, xlab="x", ylab="probability", xlim=c(-3,3), ylim=c(0,0.4), type="l", col="blue")
+> par (new=T)
+> 
+> plot (x, x.tdistr, xlab="x", ylab="probability", xlim=c(-3,3), ylim=c(0,0.4), type="l", col="red")
+> q()
+>  

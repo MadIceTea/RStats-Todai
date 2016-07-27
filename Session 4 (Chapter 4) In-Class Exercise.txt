@@ -1,0 +1,47 @@
+##########
+#  Various Normal Distributions
+#    Chapter 4, pages 41-44
+##########
+
+#Define the range of the horizontal access, or the "abscissa"
+x <-seq(-3, 73.5, 0.01)
+
+#Define the curves
+x.ncurve1 <- dnorm(x,mean=20,sd=4)
+x.ncurve2 <- dnorm(x,mean=0,sd=1)
+x.ncurve3 <- dnorm(x,mean=40,sd=2)
+x.ncurve4 <- dnorm(x,mean=60,sd=4.5)
+
+#Plot the above defined curves
+#Type is "L" for line, not 1!!
+plot(x,x.ncurve1,xlab="x",ylab="x.norm",xlim=c(-3,73.5),ylim=c(0,0.45),type="l",col="blue")
+par(new=T)
+plot(x,x.ncurve2,xlab="",ylab="",xlim=c(-3,73.5),ylim=c(0,0.45),type="l",col="red")
+par(new=T)
+plot(x,x.ncurve3,xlab="",ylab="",xlim=c(-3,73.5),ylim=c(0,0.45),type="l",col="green")
+par(new=T)
+plot(x,x.ncurve4,xlab="x",ylab="x.norm",xlim=c(-3,73.5),ylim=c(0,0.45),type="l",col="orange")
+
+###########
+# Chapter 4: Normal distribution with standard scores
+#   Using dnorm and pnorm (1) (p.46)
+###########
+
+#Setting the defintion for the curve.
+x <- seq(-3,3,0.01)
+
+#Drawing the Curve
+x.curve <- dnorm(x,mean=0,sd=1)
+plot(x, x.curve, xlab="x", ylab="x.norm", xlim=c(-3,3), ylim=c(0,0.4), type="l", col="red")
+
+#Calculating standard deviation
+sd.x1 <- pnorm(1,mean=0,sd=1)-pnorm(0,mean=0,sd=1)
+
+sd.x1
+[1] 0.3413447
+
+sd.x2 <- pnorm(2, mean=0, sd=1) - pnorm (0,mean=0, sd=1)
+
+sd.x2
+[1] 0.4772499
+

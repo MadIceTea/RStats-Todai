@@ -1,0 +1,71 @@
+R version 3.2.5 (2016-04-14) -- "Very, Very Secure Dishes"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> # ------------
+> # Chapter 4: Standard scores of Sampling Distribution of the mean with N=36
+> # Fig. 4-8 (p.49) 
+> # ------------
+> x <- seq (101, 141, 0.1)
+> 
+> x.curve <- dnorm (x, mean=121, sd=20)
+> plot(x, x.curve, xlab="x", ylab="x.norm", xlim=c(101,141), ylim=c(0.01,0.025), type="l", col="black")
+> sd.x1 <- pnorm(1, mean=0, sd=1) - pnorm(0, mean=0, sd=1)
+> sd.x2 <- pnorm(2, mean=0, sd=1) - pnorm(0, mean=0, sd=1)
+> sd.x1
+[1] 0.3413447
+> sd.x2
+[1] 0.4772499
+> #--- I hence abandon the idea of using the standard deviation from a drawn curve, and instead will define standard deviation as a numerical string and go through the normal calculations.
+> 
+> #Sampling Standard Deviation Calculation
+> 
+> mean <- 121
+> sd <- 20
+> mean + sd
+[1] 141
+> # Test to make sure numerical assignments are working correctly. Will now continue.
+> # Standard Deviation when limited by Number of Iterations
+> N <- 36
+> sd.N <- sd / (sqrt (N))
+> sd.N
+[1] 3.333333
+> # Variance
+> x1 <- 116
+> x2 <- 126
+> var1 <- mean - x1
+> var1 <- x2 - mean
+> var 1 <- mean - x1
+Error: unexpected numeric constant in "var 1"
+> var1 <- mean - x1
+> var2 <- x2 - mean
+> var1
+[1] 5
+> var2
+[1] 5
+> #Z-score (or Standard score) is defined as variance divided by the Standard Deviation Number-of-Iterations Limited.
+> z1 <- var1 / sd.N
+> z2 <- var2 / sd.N
+> z1
+[1] 1.5
+> z2
+[1] 1.5
+> #Hence, the Z, or Standard, Score for values 116 and 126 in the problem are both 1.5.
+> #Problem solved
+> #End of Problem
+> #MLG Double Kill
+> 

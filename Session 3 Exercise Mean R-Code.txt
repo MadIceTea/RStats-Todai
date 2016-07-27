@@ -1,0 +1,73 @@
+
+R version 3.2.4 Revised (2016-03-16 r70336) -- "Very Secure Dishes"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: i386-w64-mingw32/i386 (32-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> #--- The Law of Large Numbers ---
+> N <- 20 #-- Sample Size
+> M <- 100 #--No. of Replications for aggregate statistical analysis
+> total.mean <-numeric(M)
+> total.sd <- numeric(M)
+> for (i in 1:M) {
++ x<- c(rnorm(N, mean=158.5, sd=4.0) )
++ total.mean[i] <- mean(x)
++ total.sd[i] <- sd(x)
++ }
+> 
+> h1 <- seq(154, 164, 0.5)
+> hist (total.mean, breaks=h1, col="grey")
+
+> > #--- The Law of Large Numbers ---
+> N <- 70 #-- Sample Size
+> M <- 100 #--No. of Replications for aggregate statistical analysis
+> total.mean <-numeric(M)
+> total.sd <- numeric(M)
+> for (i in 1:M) {
++ x<- c(rnorm(N, mean=158.5, sd=4.0) )
++ total.mean[i] <- mean(x)
++ total.sd[i] <- sd(x)
++ }
+> 
+> h1 <- seq(154, 164, 0.5)
+> hist (total.mean, breaks=h1, col="grey")
+> #--- The Law of Large Numbers ---
+> N <- 200 #-- Sample Size
+> M <- 100 #--No. of Replications for aggregate statistical analysis
+> total.mean <-numeric(M)
+> total.sd <- numeric(M)
+> for (i in 1:M) {
++ x<- c(rnorm(N, mean=158.5, sd=4.0) )
++ total.mean[i] <- mean(x)
++ total.sd[i] <- sd(x)
++ }
+> 
+> h1 <- seq(154, 164, 0.5)
+> hist (total.mean, breaks=h1, col="grey")
+> #--- The Law of Large Numbers ---
+> N <- 1000 #-- Sample Size
+> M <- 100 #--No. of Replications for aggregate statistical analysis
+> total.mean <-numeric(M)
+> total.sd <- numeric(M)
+> for (i in 1:M) {
++ x<- c(rnorm(N, mean=158.5, sd=4.0) )
++ total.mean[i] <- mean(x)
++ total.sd[i] <- sd(x)
++ }
+> 
+> h1 <- seq(154, 164, 0.5)
+> hist (total.mean, breaks=h1, col="grey")
+> 

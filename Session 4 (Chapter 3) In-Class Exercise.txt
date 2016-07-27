@@ -1,0 +1,72 @@
+
+R version 3.2.5 (2016-04-14) -- "Very, Very Secure Dishes"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+##################
+#    Convert the matrix structure by rows and columns!
+#
+#    Exercising Central Limit Theorem
+#        Chapter 3
+##################
+ 
+N=3
+sampling.num <- 10000
+ 
+mydata <- c(runif(10000, 0, 10))
+#runif is Random Uniform (Distribution)
+hist (mydata, breaks=10, col="blue")
+
+sample.data <- matrix (0, nrow=sampling.num, ncol=N)
+sample.mean <- numeric(sampling.num)
+
+for (i in 1:sampling.num)
+sample.data[i, 1:N] <- sample(mydata, N, replace=TRUE)
+
+for(i in 1:sampling.num)
+sample.mean[i] <- mean(sample.data[i, 1:N])
+
+hist(sample.mean, breaks=50, col="dark green")
+
+
+##################
+#    Convert the matrix structure by rows and columns!
+#
+#    Exercising Gamma Distribution
+#        Extra FYI
+##################
+
+N=12
+sampling.num <- 100000
+
+mydata <- rgamma(100000, shape=2, scale=1)
+#runif is Random Uniform (Distribution)
+hist (mydata, breaks=10, col="purple")
+
+#Gamma Distribution sampling from the population
+sample.data <- matrix (0, nrow=N, ncol=sampling.num)
+sample.mean <- numeric(sampling.num)
+
+for (i in 1:sampling.num)
+sample.data[1:N, i] <- sample(mydata, N, replace=TRUE)
+
+for(i in 1:sampling.num)
+sample.mean[i] <- mean(sample.data[1:N, i])
+
+hist(sample.mean, breaks=30, col="orange")
+
+#End of code for Chapter 3.

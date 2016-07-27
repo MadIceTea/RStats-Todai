@@ -1,0 +1,18 @@
+#-------------
+# Chapter 4 HW addendum: Getting probability density under the curve.
+# Fig. 4-8 (p.49)
+#-------------
+
+x <- seq (101, 141, 0.1)
+x.curve <- dnorm(x, mean=121, sd=20)
+plot(x,x.curve,xlab="x", ylab="x.norm", xlim=c(101,141), ylim=c(0,0.025), type="l", col="black")
+par(new=T)
+
+y1 <- pnorm(121, mean=121, sd=20) - pnorm(116, mean=121, sd=20)
+y2<- pnorm(126, mean=121, sd=20) - pnorm(121, mean=121, sd=20)
+y3 <- y1 + y2
+y4 <- 1 - y3
+
+#Print Value of the Probability Area Under the Curve from 116<x<126.
+
+y4

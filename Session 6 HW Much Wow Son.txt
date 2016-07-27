@@ -1,0 +1,31 @@
+###############
+#Homework Lesson 5
+#Page 74, Problem D Jekyll and Hyde
+#Alex Taniguchi
+###############
+
+g.P <- c(5,5,7,10,10)
+g.C <- c(5,0,7,5)
+t.test(g.P, g.C, var=T)
+
+#Step-by-Step Calculations for the T-test
+
+N1 <-5; N2 <-4
+g.P <- c(5,5,7,10,10)
+g.C <- c(5,0,7,5)
+
+SS1 <- sum((g.P-mean(g.P))^2)
+SS2 <- sum((g.C-mean(g.C))^2)
+
+sp.2 <- (SS1+SS2)/(N1+N2-2)
+s.x <- sqrt(sp.2*(1/N1 + 1/N2))
+t.value <- (mean(g.P)-mean(g.C))/s.x
+
+t.value
+
+(1-pt(t.value, df=N1+N2-2))*2
+
+#Success! Values match. That is great.
+#End of Homework
+#Today is a great day for fried chicken.
+#Get rekt son. Homework is done.

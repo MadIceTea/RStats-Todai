@@ -1,0 +1,217 @@
+
+R version 3.2.5 (2016-04-14) -- "Very, Very Secure Dishes"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> #--- The Law of Large Numbers ---
+> N <- 20 #-- Sample Size
+> M <- 100 #--No. of Replications for aggregate statistical analysis
+> total.mean <-numeric(M)
+> total.sd <- numeric(M)
+> for (i in 1:M) {
++ x<- c(rnorm(N, mean=158.5, sd=4.0) )
++ total.mean[i] <- mean(x)
++ total.sd[i] <- sd(x)
++ }
+> total.sd
+  [1] 3.585361 4.883833 4.775433 4.023835 3.925093 3.463350 3.921154 4.033385
+  [9] 4.736537 3.187121 3.347160 2.662400 3.845248 3.564981 3.774900 3.205782
+ [17] 3.123252 3.294099 3.432599 4.437714 3.316050 3.969225 4.206820 4.425644
+ [25] 3.945982 3.913555 4.743356 3.657569 3.630477 3.631768 3.441397 4.624705
+ [33] 4.682602 4.020721 4.681076 3.504547 3.321513 3.968240 4.009961 3.843029
+ [41] 4.275866 5.128122 3.217455 4.412486 3.785400 3.022691 4.481095 3.936389
+ [49] 4.578220 4.163412 4.672032 2.626632 5.205095 4.664602 3.560817 2.727369
+ [57] 3.860836 3.732730 3.782805 3.365063 4.718802 3.631518 3.660780 3.024105
+ [65] 3.898953 4.441375 3.531886 3.801789 3.847221 3.543274 3.761829 4.891234
+ [73] 3.911873 5.178681 5.631770 3.912117 4.825869 4.401129 4.550143 4.145921
+ [81] 4.496780 4.161226 4.815627 4.620205 3.809481 4.296670 3.375327 4.070018
+ [89] 5.269701 2.736987 4.194728 3.507527 3.735008 2.820891 4.158024 4.206504
+ [97] 3.627511 4.105944 4.678257 3.763592
+> max (total.sd) - min (total.sd)
+[1] 3.005138
+> max (total.sd) - 4
+[1] 1.63177
+> 4 - min (total.sd)
+[1] 1.373368
+> max (total.sd)
+[1] 5.63177
+> min (total.sd)
+[1] 2.626632
+> h1 <- seq(2, 6, 0.15)
+> hist (total.sd, breaks=h1, col="blue")
+> 
+> > > #--- The Law of Large Numbers ---
+Error: unexpected '>' in ">"
+> > N <- 70 #-- Sample Size
+Error: unexpected '>' in ">"
+> > M <- 100 #--No. of Replications for aggregate statistical analysis
+Error: unexpected '>' in ">"
+> > total.mean <-numeric(M)
+Error: unexpected '>' in ">"
+> > total.sd <- numeric(M)
+Error: unexpected '>' in ">"
+> > for (i in 1:M) {
+Error: unexpected '>' in ">"
+> + x<- c(rnorm(N, mean=158.5, sd=4.0) )
+Error in +x <- c(rnorm(N, mean = 158.5, sd = 4)) : 
+  could not find function "+<-"
+> + total.mean[i] <- mean(x)
+Error in +total.mean[i] <- mean(x) : could not find function "+<-"
+> + total.sd[i] <- sd(x)
+Error in +total.sd[i] <- sd(x) : could not find function "+<-"
+> + }
+Error: unexpected '}' in "+ }"
+> > 
+Error: unexpected '>' in ">"
+> #-- Oops try again. --
+> 
+> #--- The Law of Large Numbers ---
+> N <- 70 #-- Sample Size
+> M <- 100 #--No. of Replications for aggregate statistical analysis
+> total.mean <-numeric(M)
+> total.sd <- numeric(M)
+> for (i in 1:M) {
++ x<- c(rnorm(N, mean=158.5, sd=4.0) )
++ total.mean[i] <- mean(x)
++ total.sd[i] <- sd(x)
++ }
+>  total.sd
+  [1] 3.704847 4.131042 3.981262 3.914802 3.753074 3.912849 4.108839 3.643427
+  [9] 3.740594 4.227627 3.798892 3.756555 4.148595 4.691985 4.080895 3.671179
+ [17] 3.360145 4.211265 3.758401 3.813658 3.932313 3.181581 3.654635 3.853592
+ [25] 4.039389 4.480182 2.733408 3.956540 3.473212 3.995465 3.600995 3.916420
+ [33] 4.011208 4.771606 3.725299 4.571856 4.354221 3.781600 3.914040 3.738309
+ [41] 4.717378 3.814373 4.041692 3.992761 3.933289 4.123340 4.444241 4.073381
+ [49] 3.585397 3.712804 4.141089 4.295987 3.718478 3.932125 3.711982 4.375585
+ [57] 4.070415 4.095847 3.795810 4.009063 4.045584 3.699512 4.098164 3.528271
+ [65] 3.946691 3.963898 3.763817 3.234852 4.549571 4.077556 4.555459 4.398321
+ [73] 3.828902 3.858495 4.304170 3.428408 4.036492 3.758071 3.616312 3.819710
+ [81] 4.459084 3.500892 3.816963 4.178628 4.275968 4.659949 3.646364 4.424838
+ [89] 3.869860 3.465529 3.678666 3.986226 3.788550 3.913196 4.062781 3.945076
+ [97] 4.139176 3.446939 4.206160 4.623603
+> max (total.sd) - min (total.sd)
+[1] 2.038198
+> max (total.sd) - 4
+[1] 0.7716058
+> 4 - min (total.sd)
+[1] 1.266592
+> max (total.sd)
+[1] 4.771606
+> min (total.sd)
+[1] 2.733408
+> median (total.sd)
+[1] 3.932801
+> h1 <- seq(2.5, 5, 0.15)
+> hist (total.sd, breaks=h1, col="green")
+> # graph is cutting off
+> 
+>  h1 <- seq(2.5, 5, 0.15)
+>  h1 <- seq(2.5, 4.8, 0.15)
+> hist (total.sd, breaks=h1, col="green")
+Error in hist.default(total.sd, breaks = h1, col = "green") : 
+  some 'x' not counted; maybe 'breaks' do not span range of 'x'
+>  h1 <- seq(2.5, 5.2, 0.15)
+> hist (total.sd, breaks=h1, col="green")
+> # much better
+> 
+> #--- The Law of Large Numbers ---
+> N <- 200 #-- Sample Size
+> M <- 100 #--No. of Replications for aggregate statistical analysis
+> total.mean <-numeric(M)
+> total.sd <- numeric(M)
+> for (i in 1:M) {
++ x<- c(rnorm(N, mean=158.5, sd=4.0) )
++ total.mean[i] <- mean(x)
++ total.sd[i] <- sd(x)
++ }
+> 
+> total.sd
+  [1] 4.120544 4.195652 4.168039 3.929184 3.671256 3.984710 4.207188 3.940544
+  [9] 4.262090 4.329474 4.118491 4.105240 3.882865 3.730177 3.806643 3.870649
+ [17] 4.065973 3.879077 4.059353 4.181690 3.997928 4.004829 3.811464 3.792670
+ [25] 4.031782 3.872969 3.967211 3.725555 4.198763 3.928502 4.188131 4.138319
+ [33] 3.975140 3.684983 3.744382 4.056869 4.185526 3.799483 4.040876 4.115220
+ [41] 3.579257 4.041304 3.812649 3.755024 4.113828 4.449914 4.231943 4.283449
+ [49] 4.125861 3.816034 3.899208 4.035577 3.831272 4.030276 4.131712 4.090612
+ [57] 4.275060 4.131532 3.983871 3.642523 3.787879 4.040936 3.618970 4.260489
+ [65] 4.169352 4.078630 3.919748 4.130127 4.409477 3.835289 3.946579 4.343977
+ [73] 4.135641 4.203867 4.235444 3.967410 3.943550 4.040225 3.698387 4.145908
+ [81] 3.821998 3.736962 3.835672 4.234994 4.127221 4.198230 3.876449 3.748416
+ [89] 3.854424 4.252311 3.775954 4.115062 4.022458 3.994450 3.944503 3.886940
+ [97] 4.290334 3.797191 3.699313 3.893462
+> max (total.sd)
+[1] 4.449914
+> min (total.sd)
+[1] 3.579257
+> median (total.sd)
+[1] 4.013643
+> max (total.sd) - 4
+[1] 0.4499136
+> 4 - min (total.sd)
+[1] 0.4207428
+> 
+> h1 <- seq(3.4, 5.1, 0.15)
+> hist (total.sd, breaks=h1, col="red")
+> # see another case
+> 
+> 
+> h1 <- seq(3.4, 4.6, 0.15)
+> hist (total.sd, breaks=h1, col="red")
+> #better
+> 
+> #--- The Law of Large Numbers ---
+> N <- 1000 #-- Sample Size
+> M <- 100 #--No. of Replications for aggregate statistical analysis
+> total.mean <-numeric(M)
+> total.sd <- numeric(M)
+> for (i in 1:M) {
++ x<- c(rnorm(N, mean=158.5, sd=4.0) )
++ total.mean[i] <- mean(x)
++ total.sd[i] <- sd(x)
++ }
+> 
+> total.sd
+  [1] 4.016856 3.978950 3.887523 3.920757 3.906734 4.000607 4.100666 4.175810
+  [9] 3.884327 4.039051 3.933948 4.050126 4.023405 3.990580 4.014870 3.958349
+ [17] 3.880667 4.055558 3.823241 4.020909 4.101087 4.115226 3.995351 3.986991
+ [25] 4.008035 3.827761 4.026824 4.026865 3.966221 3.996167 3.879148 4.055193
+ [33] 3.963019 3.972435 3.901835 3.918860 4.032703 4.100877 4.025773 3.963591
+ [41] 4.049287 3.915306 3.945935 4.001891 3.989873 4.067906 3.983089 4.008317
+ [49] 4.063800 4.123475 3.910650 3.896439 3.966578 4.010954 3.960045 3.980032
+ [57] 4.063379 3.973473 3.888172 3.947234 4.105522 3.938199 4.054617 4.047820
+ [65] 4.070654 4.025361 4.195781 3.853564 3.999538 3.978446 3.906479 3.917135
+ [73] 3.886090 3.919590 4.064365 4.021199 3.929646 4.002655 4.014023 3.933795
+ [81] 3.962359 4.037921 4.073302 4.212530 4.109128 4.042592 3.880229 3.960042
+ [89] 4.024183 4.077119 3.964889 3.787068 3.971419 3.943297 4.059689 4.121605
+ [97] 4.052903 3.954968 3.770060 3.872420
+> max (total.sd)
+[1] 4.21253
+> min (total.sd)
+[1] 3.77006
+> median (total.sd)
+[1] 3.992965
+> h1 <- set(3.7, 4.3, 0.15)
+Error: could not find function "set"
+> h1 <- seq(3.7, 4.3, 0.15)
+> hist (total.sd, breaks=h1, col="purple")
+> h1 <- seq(3.7, 4.3, 0.1)
+> hist (total.sd, breaks=h1, col="purple")
+> # better
+> # and.. end
+> 
+> #End of program.
+> 

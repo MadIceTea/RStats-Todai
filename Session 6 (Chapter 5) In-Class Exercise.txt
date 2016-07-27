@@ -1,0 +1,103 @@
+############
+#Chapter 5, Table 5-1
+############
+
+#That's a lot of detonated wam bro, or data. Or whatever to call it.
+small <- c(87,100,89,95,63,81,84,79,78,34,92,90,48,86,75,96,89,86,73,77,56,84,93,87,72,86,98,88,70,64)
+large <- c(98,87,70,94,80,76,79,64,46,40,88,90,78,80,65,43,76,83,72,81,90,85,100,74,68,25,47,71,80,86)
+#Draws box-whisker plot
+boxplot(small, large, names=c("small","large"))
+
+###########
+# page 58, Table 5-1
+#Let's do T-test in R
+###########
+
+small <- c(87,100,89,95,63,81,84,79,78,34,92,90,48,86,75,96,89,86,73,77,56,84,93,87,72,86,98,88,70,64)
+large <- c(98,87,70,94,80,76,79,64,46,40,88,90,78,80,65,43,76,83,72,81,90,85,100,74,68,25,47,71,80,86)
+t.test(small,large, var=T)
+
+###########
+#Table 5-1
+#Step by Step Calculations for t-test without t.test() function
+###########
+
+N1 <-30; N2 <- 30
+#N1 is the small and N2 is the large
+x1 <- c(87,100,89,95,63,81,84,79,78,34,92,90,48,86,75,96,89,86,73,77,56,84,93,87,72,86,98,88,70,64)
+x2 <- c(98,87,70,94,80,76,79,64,46,40,88,90,78,80,65,43,76,83,72,81,90,85,100,74,68,25,47,71,80,86)
+
+SS1 <- sum((x1-mean(x1))^2)
+SS2 <- sum((x2-mean(x2))^2)
+sp.2 <- (SS1+SS2) / (N1+N2-2)
+s.x <- sqrt(sp.2*(1/N1 + 1/N2))
+t.value <- (mean(x1)-mean(x2))/s.x
+
+t.value
+
+(1-pt(t.value, df=N1+N2-2))*2
+
+###########
+#Table 5-3
+#Student of group F vs Students of group P
+###########
+
+g.F <- c(4,7,1,5,9,7,4,6,8,8,7,6)
+g.P <- c(1,4,2,4,6,3,5,7,3,0,5,2)
+t.test(g.F, g.P, var=T)
+
+#Step-by-Step Calculations for the T-test
+
+N1 <-12; N2 <-12
+g.F <- c(4,7,1,5,9,7,4,6,8,8,7,6)
+g.P <- c(1,4,2,4,6,3,5,7,3,0,5,2)
+
+SS1 <- sum((g.F-mean(g.F))^2)
+SS2 <- sum((g.P-mean(g.P))^2)
+
+sp.2 <- (SS1+SS2)/(N1+N2-2)
+s.x <- sqrt(sp.2*(1/N1 + 1/N2))
+t.value <- (mean(g.F)-mean(g.P))/s.x
+
+t.value
+
+(1-pt(t.value, df=N1+N2-2))*2
+
+qt(0.025, df=N1+N2-2)
+
+qt(1-0.025,  df=N1+N2-2)
+
+#End of Program
+#End of Classwork Material, Session 6
+#Doge Applauds you for reading all this
+
+###############
+#Self-Exercise
+#Table 5-4: Hypothetical ratings by clinical psychology graduate students
+###############
+
+g.pos <- c(7,6,4,5,7,10,2)
+g.neg <- c(5,0,3,3,4,4)
+t.test(g.pos, g.neg, var=T)
+
+#Step-by-Step Calculations for the T-test
+
+N1 <-7; N2 <-6
+g.pos <- c(7,6,4,5,7,10,2)
+g.neg <- c(5,0,3,3,4,4)
+
+SS1 <- sum((g.pos-mean(g.pos))^2)
+SS2 <- sum((g.neg-mean(g.neg))^2)
+
+sp.2 <- (SS1+SS2)/(N1+N2-2)
+s.x <- sqrt(sp.2*(1/N1 + 1/N2))
+t.value <- (mean(g.pos)-mean(g.neg))/s.x
+
+t.value
+
+(1-pt(t.value, df=N1+N2-2))*2
+
+#Success! Values match. That is great.
+#End of In-Class Exercise
+#Enough mf code in this mf console.
+#Get hydraulic noscoped brother.
